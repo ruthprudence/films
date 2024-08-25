@@ -21,7 +21,7 @@ const handleButtonClick = (opinion) => {
   const filmCards = document.querySelectorAll(".film-card");
 
   filmCards.forEach((filmCard) => {
-    const filmOpinion = filmCard.querySelector(".film-card-back p:nth-child(4)").textContent;
+    const filmOpinion = filmCard.querySelector(".film-card-back p:nth-child(5)").textContent;
 
     if (selectedOpinions.includes(filmOpinion) || selectedOpinions.length === 0) {
       filmCard.classList.remove("hidden");
