@@ -4,18 +4,28 @@ import createFilmCard from "./createFilmCard.js";
  * @param {object[]} films - The array of film objects to create HTML for.
  * @returns {string} Complete HTML content.
  */
-export default async function createHTML(films) {
-  const chunkSize = 10; // Process 10 films at a time
-  const filmCards = [];
+// import films from './films.js';
 
-  for (let i = 0; i < films.length; i += chunkSize) {
-    const chunk = films.slice(i, i + chunkSize);
-    const chunkFilmCards = await Promise.all(chunk.map(createFilmCard));
-    filmCards.push(...chunkFilmCards);
-    await new Promise(resolve => setTimeout(resolve, 1000)); // Wait 1 second before processing the next chunk
-  }
+const createHTML = () => {
+  const filmCards = films.map((film) => {
+    return `
+      <div class="film-card" data-title="${film.title}" data-year="${film.year}">
+        <div class="film-card-inner">
+          <div class="film-card-front">
+            <img src="" alt="${film.title}" width="180" height="280">
+          </div>
+          <div class="film-card-back">
+            <h3 class="card-title">${film.title}</h3>
+            <p class="release-year">(${film.year})</p>
+            <p class="seen">Seen</p>
+            <p class="date-watched">${film.dateWatched}</p>
+            <p class="opinion">${film.opinion}</p>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
 
-  const filmCardsHTML = filmCards.join('');
   return `
     <!DOCTYPE html>
     <html lang="en">
@@ -25,6 +35,7 @@ export default async function createHTML(films) {
       <title>Film Library</title>
       <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.27.2/dist/axios.min.js"></script>
     
     <body>
       <header>
@@ -39,11 +50,13 @@ export default async function createHTML(films) {
       </header>
     
       <main class="content">
-        ${filmCardsHTML}
+        ${filmCards}
       </main>
     
       <script type="module" defer src="scripts.js"></script>
     </body>
     </html>
   `;
-}
+};
+
+export default createHTML;

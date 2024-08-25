@@ -4,9 +4,10 @@ import getMoviePoster from "./getMoviePoster.js";/**
  * @returns {string} HTML for the film card.
  *
  * /**/ 
-const createFilmCard = (film) => {
+ const createFilmCard = async (film) => {
+  // const posterUrl = await getMoviePoster(film.title, film.year);
   const filmCardHTML = `
-    <div class="film-card" onclick="this.classList.toggle('show-back')">
+    <div class="film-card"  data-title="${film.title}" data-year="${film.year}" onclick="this.classList.toggle('show-back')">
       <div class="film-card-inner">
         <div class="film-card-front">
           <img src="" alt="${film.title}" width="180" height="280">
