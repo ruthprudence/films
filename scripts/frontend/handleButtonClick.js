@@ -1,6 +1,7 @@
 import updateButtonStyles from "./updateButtonStyles.js";
 
 // Function to handle button clicks and update selection
+// handleButtonClick.js
 const opinionMap = {
   "I loved it!": 5,
   "I really liked it!": 4,

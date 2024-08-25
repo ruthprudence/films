@@ -48,9 +48,8 @@ const createHTML = (films) => {
       <main class="content">
         ${filmCards}
       </main>
-    
-      <script type="module" defer src="scripts.js"></script>
           <script src="https://cdn.jsdelivr.net/npm/axios@0.27.2/dist/axios.min.js"></script>
+          <script type="module" defer src="scripts/frontend/listeners/nav-listener.js"></script>
     </body>
     </html>
   `;
