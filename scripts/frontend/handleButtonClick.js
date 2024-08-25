@@ -23,6 +23,7 @@ const handleButtonClick = (opinion) => {
   filmCards.forEach((filmCard) => {
     const filmOpinion = filmCard.querySelector(".film-card-back p:nth-child(4)").textContent;
 
+    // Check if selectedOpinions is empty or contains the filmOpinion
     if (selectedOpinions.includes(filmOpinion) || selectedOpinions.length === 0) {
       filmCard.classList.remove("hidden");
     } else {

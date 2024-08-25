@@ -15,7 +15,7 @@ export default function createFilmCard(film) {
           <p class="release-year">(${film.released})</p>
           <p class="seen">Seen</p>
           <p class="date-watched">${film.dateWatched}</p>
-          <p class="opninion">${film.opinion}</p>
+          <p class="opinion">${film.opinion}</p>
         </div>
       </div>
     </div>
