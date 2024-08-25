@@ -1,6 +1,4 @@
-import axios from 'https://cdn.jsdelivr.net/npm/axios@0.27.2/dist/axios.min.js';
-
-// ...
+import axios from 'axios';
 import dotenv from 'dotenv';
 dotenv.config();
 

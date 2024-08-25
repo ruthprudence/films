@@ -66,3 +66,31 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.error('Error:', error);
   }
 });
+
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    // ...
+
+    const contentElement = document.querySelector('.content');
+    const filmCards = contentElement.querySelectorAll('.film-card');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const filmCard = entry.target;
+          const title = filmCard.dataset.title;
+          const year = filmCard.dataset.year;
+          getMoviePoster(title, year).then((posterUrl) => {
+            filmCard.querySelector('img').src = posterUrl;
+          });
+        }
+      });
+    }, { threshold: 0.5 });
+
+    filmCards.forEach((filmCard) => {
+      observer.observe(filmCard);
+    });
+  } catch (error) {
+    console.error('An error occurred:', error.message);
+  }
+});

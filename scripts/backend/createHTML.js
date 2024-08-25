@@ -1,22 +1,19 @@
-import createFilmCard from "./createFilmCard.js";
 /**
  * Creates full HTML content including the film cards.
  * @param {object[]} films - The array of film objects to create HTML for.
  * @returns {string} Complete HTML content.
  */
-// import films from './films.js';
-
-const createHTML = () => {
+const createHTML = (films) => {
   const filmCards = films.map((film) => {
     return `
-      <div class="film-card" data-title="${film.title}" data-year="${film.year}">
+      <div class="film-card" data-title="${film.title}" data-year="${film.released}" onclick="this.classList.toggle('show-back')">
         <div class="film-card-inner">
           <div class="film-card-front">
             <img src="" alt="${film.title}" width="180" height="280">
           </div>
           <div class="film-card-back">
             <h3 class="card-title">${film.title}</h3>
-            <p class="release-year">(${film.year})</p>
+            <p class="release-year">(${film.released})</p>
             <p class="seen">Seen</p>
             <p class="date-watched">${film.dateWatched}</p>
             <p class="opinion">${film.opinion}</p>
@@ -35,7 +32,6 @@ const createHTML = () => {
       <title>Film Library</title>
       <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
-    <script src="https://cdn.jsdelivr.net/npm/axios@0.27.2/dist/axios.min.js"></script>
     
     <body>
       <header>
@@ -54,6 +50,7 @@ const createHTML = () => {
       </main>
     
       <script type="module" defer src="scripts.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/axios@0.27.2/dist/axios.min.js"></script>
     </body>
     </html>
   `;
