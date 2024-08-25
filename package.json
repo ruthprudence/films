@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/ruthprudence/films#readme",
   "dependencies": {
+    "axios": "^1.7.5",
     "dotenv": "^16.4.5"
-  },
-  "devDependencies": {}
+  }
 }
