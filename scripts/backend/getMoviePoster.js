@@ -1,42 +1,17 @@
 // getMoviePoster.js;
-import dotenv from 'dotenv';
-dotenv.config({ path: '../../.env'});
-
-const tmdbApiKey = process.env.TMDB_API_KEY;
-const tmdbApiUrl = 'https://api.themoviedb.org/3';
-
-const getMoviePoster = async (title, year) => {
-  try {
-    axios.get('https://api.themoviedb.org/3/search/movie', {
-        params: {
-          api_key: 'YOUR_API_KEY',
-          query: 'The Witch',
-        },
-      })
-      .then(response => {
-        console.log(response.data);
-      })
-      .catch(error => {
-        console.error(error);
+const getMoviePoster = async (data) => {
+    try {
+      const response = await fetch('http://localhost:3000/get-movie-posters', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
       });
-    const response = await axios.get(`${tmdbApiUrl}/search/movie`, {
-      params: {
-        api_key: tmdbApiKey,
-        query: `${title} (${year})`,
-      },
-    });
-
-    const results = response.data.results;
-    if (results.length > 0) {
-      const posterPath = results[0].poster_path;
-      const posterUrl = `https://image.tmdb.org/t/p/w500${posterPath}`;
-      return posterUrl;
-    } else {
-      return "";
+  
+      const posterUrls = await response.json();
+      return posterUrls;
+    } catch (error) {
+      console.error(error);
     }
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-export default getMoviePoster;
+  };
+  
+  export default getMoviePoster;
