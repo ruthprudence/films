@@ -1,4 +1,4 @@
-import handleButtonClick from '../handleButtonClick.js';
+import handleButtonClick from '../frontend/handleButtonClick.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const navBar = document.querySelector('nav');
