@@ -9,6 +9,7 @@ const createHTML = (films) => {
       <div class="film-card" data-title="${film.title}" data-year="${film.released}" onclick="this.classList.toggle('show-back')">
         <div class="film-card-inner">
           <div class="film-card-front">
+          <span>${film.title}</span>
             <img src="" alt="${film.title}" width="180" height="280">
           </div>
           <div class="film-card-back">

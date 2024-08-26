@@ -23,4 +23,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Start loading batches
-loadAllBatches();
+// loadAllBatches();

@@ -69,10 +69,13 @@ header nav button {
 }
 
 .film-card-front {
-    background: #fff;
+    background: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 1.5em;
 }
 
 .film-card-back {
@@ -138,4 +141,14 @@ h3.card-title{
   
   .no-image::before {
     content: attr(alt);
+  }
+
+  img[src=""] {
+    display: none;
+  }
+
+  .film-card-front > span { 
+    display: block;
+    padding: 10px;
+    width: 70%;
   }
