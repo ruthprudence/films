@@ -1,4 +1,5 @@
-import loadNextBatch from './frontend/loadNextBatch';
+import loadNextBatch from "./backend/loadNextBatch.js";
+import handleButtonClick from './frontend/handleButtonClick.js';
 
 const contentElement = document.querySelector('.content');
 const batchSize = 10;
@@ -11,6 +12,15 @@ async function loadAllBatches() {
     await loadNextBatch();
   }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const navBar = document.querySelector('nav');
+  navBar.addEventListener('click', (event) => {
+    if (event.target.tagName === 'BUTTON') {
+      handleButtonClick(event.target.textContent);
+    }
+  });
+});
 
 // Start loading batches
 loadAllBatches();

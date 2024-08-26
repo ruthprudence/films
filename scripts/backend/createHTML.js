@@ -50,8 +50,7 @@ const createHTML = (films) => {
         ${filmCards}
       </main>
           
-          <script type="module" defer src="scripts/frontend/listeners/nav-listener.js"></script>
-           <script type="module" defer src="scripts/frontend/listeners/img-listener.js"></script>
+           <script type="module" defer src="scripts/scripts.js"></script>
     </body>
     </html>
   `;

@@ -1,10 +1,11 @@
 import getMoviePoster from './getMoviePoster.js';
 
-const contentElement = document.querySelector('.content');
-const batchSize = 10;
-let currentBatch = 0;
-let films = []; // your films array
-let filmCards = contentElement.querySelectorAll('.film-card');
+const loadAllBatches = async () => {
+  while (currentBatch * batchSize < films.length) {
+    await loadNextBatch();
+    currentBatch++;
+  }
+};
 
 const loadNextBatch = async () => {
   const batch = films.slice(currentBatch * batchSize, (currentBatch + 1) * batchSize);
@@ -22,10 +23,6 @@ const loadNextBatch = async () => {
       }
     }
   }));
-  currentBatch++;
-  if (currentBatch * batchSize < films.length) {
-    loadNextBatch();
-  }
 };
 
 export default loadNextBatch;
