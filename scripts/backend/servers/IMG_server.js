@@ -52,6 +52,31 @@ app.post('/get-image-sources', async (req, res) => {
   }
 });
 
+app.post('/get-movie-poster', async (req, res) => {
+  try {
+    const title = req.body.title;
+    const year = req.body.year;
+    const response = await axios.get(`${tmdbApiUrl}/search/movie`, {
+      params: {
+        api_key: tmdbApiKey,
+        query: `${title} (${year})`,
+      },
+    });
+
+    const results = response.data.results;
+    if (results.length > 0) {
+      const posterPath = results[0].poster_path;
+      const posterUrl = `https://image.tmdb.org/t/p/w500${posterPath}`;
+      res.json(posterUrl);
+    } else {
+      res.json('');
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error fetching movie poster' });
+  }
+});
+
 app.listen(3000, () => {
   console.log('Server listening on port 3000');
 });

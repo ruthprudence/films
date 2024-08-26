@@ -125,3 +125,17 @@ h3.card-title{
 /* <h3 class="card-title">${film.title}</h3>
 <p class="release-year">(${film.released})</p>
 <p class="date-watched">Viewed on ${film.dateWatched}</p> */
+
+.no-image {
+    background-color: #ccc;
+    background-size: cover;
+    background-position: center;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .no-image::before {
+    content: attr(alt);
+  }
