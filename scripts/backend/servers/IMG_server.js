@@ -1,13 +1,14 @@
 import express from 'express';
 import axios from 'axios';
-import dotenv from 'dotenv';
 import cors from 'cors';
 
+import dotenv from 'dotenv';
+dotenv.config({ path: '../../../.env'});
 
-dotenv.config();
+const tmdbApiKey = process.env.TMDB_API_KEY;
 
 const app = express();
-const tmdbApiKey = process.env.TMDB_API_KEY;
+
 const tmdbApiUrl = 'https://api.themoviedb.org/3';
 
 app.use(cors());
