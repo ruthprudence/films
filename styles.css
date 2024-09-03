@@ -75,11 +75,12 @@ header nav button {
     align-items: center;
     flex-direction: column;
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.2em;
+    padding: 1px;
 }
 
 .film-card-back {
-    background-color: #333;
+    background-color: #000000;
     color: white;
     transform: rotateY(180deg);
     display: flex;
@@ -151,4 +152,10 @@ h3.card-title{
     display: block;
     padding: 10px;
     width: 70%;
+    text-align: center;
+    word-wrap: break-word;
+  }
+
+  p.release-year {
+    margin-bottom: 3em;
   }
