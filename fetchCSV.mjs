@@ -20,7 +20,7 @@ async function main() {
   const url = new URL(import.meta.url);  // Get current module URL
   const dirname = path.dirname(url.toString()); // Convert URL to string before dirname
   const csvFilePath = path.join('.', 'films.csv'); 
-  const htmlFilePath = path.join('.', 'film_library.html'); 
+  const htmlFilePath = path.join('.', 'index.html'); 
 
   try {
     await retrieveCSV(csvUrl)

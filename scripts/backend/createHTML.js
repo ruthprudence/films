@@ -5,15 +5,16 @@
  */
 const createHTML = (films) => {
   const filmCards = films.map((film) => {
+    const hasImage = film.imgSrc !== '';
     return `
       <div class="film-card" data-title="${film.title}" data-year="${film.released}" onclick="this.classList.toggle('show-back')">
         <div class="film-card-inner">
           <div class="film-card-front">
-          <span>${film.title}</span>
-            <img src="" alt="${film.title}" width="180" height="280">
+            ${hasImage ? '' : `<span>${film.title}</span>`}
+            <img src="${film.imgSrc}" alt="${film.title}" width="180" height="280" style="${hasImage ? '' : 'display: none'}">
           </div>
           <div class="film-card-back">
-            <h3 class="card-title">${film.title}</h3>
+            <h3 class="card-title"><a href="https://en.wikipedia.org/wiki/${film.wikipediaLink}" style="text-decoration: none; color: inherit">${film.title}</a></h3>
             <p class="release-year">(${film.released})</p>
             <p class="seen">Seen</p>
             <p class="date-watched">${film.dateWatched}</p>
