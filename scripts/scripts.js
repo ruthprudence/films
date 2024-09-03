@@ -1,6 +1,16 @@
 import loadNextBatch from "./backend/loadNextBatch.js";
 import handleButtonClick from './frontend/handleButtonClick.js';
 
+
+
+const buttons = document.querySelectorAll("nav button");
+
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    handleButtonClick(button.textContent);
+  });
+});
+
 const contentElement = document.querySelector('.content');
 const batchSize = 10;
 let currentBatch = 0;
